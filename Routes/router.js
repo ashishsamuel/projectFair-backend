@@ -15,9 +15,9 @@ router.post('/project/add',jwtMiddleware,multerConfig.single('projectImage'),pro
 // getuserprojects
 router.get('/user/all-projects',jwtMiddleware,projectController.allUserProjects)
 // getallprojects
-router.get('/project/all',jwtMiddleware,projectController.getallProjects)
+router.get('/projects/all',jwtMiddleware,projectController.getallProjects)
 // gethomeprojects
-router.get('/user/home-projects',jwtMiddleware,projectController.getHomeProjects)
+router.get('/projects/home-projects',projectController.getHomeProjects)
 
 // to provide the path of the index.js we need to export the router since indes.js is the only file that will run in the server 
 module.exports = router

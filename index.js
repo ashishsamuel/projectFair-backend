@@ -17,6 +17,9 @@ pfServer.use(express.json())
 // path needs to be set only after the previous 2 steps 
 pfServer.use(router)
 
+// exporting the uploads folder from server to frontend
+pfServer.use('/uploads',express.static('./uploads'))
+
 // set port number of server as 4000 process.env.port is used to select an another port number when 4000 is not avaialble after deployemnt
 const PORT = 4000 || process.env.PORT
 
