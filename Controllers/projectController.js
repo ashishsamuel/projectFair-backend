@@ -70,7 +70,7 @@ exports.editProject = async (req,res)=>{
     const {title,languages,overview,github,website,projectImage} = req.body
     const uploadProjectImage = req.file?req.file.filename:projectImage
     try{
-        const updateProject = await projects.findByIdAndUpdate({"_id":id},{title,languages,overview,
+        const updateProject = await projects.findByIdAndUpdate({_id:id},{title,languages,overview,
         github,website,projectImage:uploadProjectImage,userId
         },{new:true})
         await updateProject.save()
@@ -80,3 +80,15 @@ exports.editProject = async (req,res)=>{
     }
 
 }
+
+// delete project 
+exports.deleteProject = async (req,res)=>{
+    // get project details 
+    const {id} = req.params
+    try{
+        const removeProject = await projects.findByIdAndDelete({_id:id})
+        res.status(200).json(removeProject)
+    }catch(err){
+        res.status(401).json(err)
+    }
+} 
