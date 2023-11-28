@@ -23,6 +23,8 @@ router.get('/projects/home-projects',projectController.getHomeProjects)
 router.put('/project/edit/:id',jwtMiddleware,multerConfig.single('projectImage'),projectController.editProject)
 // delete project 
 router.delete('/project/remove/:id',jwtMiddleware,projectController.deleteProject)
+// edit user profile
+router.put('/user/edit',jwtMiddleware,multerConfig.single('profileImage'),userController.editUser)
 
 // to provide the path of the index.js we need to export the router since indes.js is the only file that will run in the server 
 module.exports = router
